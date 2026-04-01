@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude --version)",
+      "WebFetch(domain:www.mega-mgccoffee.com)"
+    ]
+  }
+}

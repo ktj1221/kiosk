@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEGA KIOSK MOCKUP</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="screen-welcome" class="screen active">
+    <div class="welcome-bg">
+      <div class="welcome-inner">
+        <div class="welcome-logo">
+          <img src="images/nhcafe.png" alt="NH Cafe" class="nh-logo-welcome">
+        </div>
+        <p class="welcome-sub">주문 방법을 선택해 주세요</p>
+        <p class="welcome-guide">매장 이용 여부를 먼저 선택하면 바로 메뉴로 이동합니다.</p>
+        <div class="welcome-order-actions">
+          <button class="btn-welcome-start" onclick="selectOrderType('dine-in')">
+            <span class="welcome-btn-icon">🍽️</span>
+            <span class="welcome-btn-title">먹고가기</span>
+            <span class="welcome-btn-desc">매장에서 바로 드실게요</span>
+          </button>
+          <button class="btn-welcome-start" onclick="selectOrderType('takeout')">
+            <span class="welcome-btn-icon">🥤</span>
+            <span class="welcome-btn-title">포장하기</span>
+            <span class="welcome-btn-desc">테이크아웃으로 가져갈게요</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="screen-order-type" class="screen">
+    <div class="order-type-header">
+      <button class="icon-back" onclick="showScreen('screen-welcome')">←</button>
+      <span>이용 방법을 선택해 주세요</span>
+    </div>
+    <div class="order-type-body">
+      <button class="order-type-card" onclick="selectOrderType('dine-in')">
+        <span class="ot-icon">🍽️</span>
+        <span class="ot-title">매장 이용</span>
+        <span class="ot-desc">매장에서 드시고 가실게요</span>
+      </button>
+      <button class="order-type-card" onclick="selectOrderType('takeout')">
+        <span class="ot-icon">🥤</span>
+        <span class="ot-title">포장</span>
+        <span class="ot-desc">가져가실게요</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="screen-menu" class="screen">
+    <div class="kiosk-shell">
+      <div class="menu-header">
+        <button class="circle-back" onclick="showScreen('screen-order-type')">‹</button>
+        <div class="menu-brand">
+          <img src="images/nhcafe.png" alt="NH Cafe" class="nh-logo-header">
+        </div>
+        <div class="menu-lang">LANG</div>
+      </div>
+
+      <div class="category-tabs" id="category-tabs">
+        <button class="tab-btn active" data-cat="recommend" onclick="filterCategory(this,'recommend')">추천메뉴</button>
+        <button class="tab-btn" data-cat="discount" onclick="filterCategory(this,'discount')">오늘의할인</button>
+        <button class="tab-btn" data-cat="coffee" onclick="filterCategory(this,'coffee')">커피</button>
+        <button class="tab-btn" data-cat="smoothie" onclick="filterCategory(this,'smoothie')">스무디&프라페</button>
+        <button class="tab-btn" data-cat="ade" onclick="filterCategory(this,'ade')">에이드&주스</button>
+        <button class="tab-btn" data-cat="tea" onclick="filterCategory(this,'tea')">티(Tea)</button>
+        <button class="tab-btn" data-cat="dessert" onclick="filterCategory(this,'dessert')">디저트</button>
+      </div>
+
+      <div class="menu-layout">
+        <div class="menu-grid" id="menu-grid"></div>
+        <div class="menu-bottom">
+          <div class="order-preview">
+            <p class="preview-title">선택한 상품</p>
+            <div class="order-preview-body">
+              <div id="order-preview-list" class="order-preview-list"></div>
+              <div class="preview-scroll-controls">
+                <button class="preview-scroll-btn" onclick="scrollPreview(-1)" aria-label="위로 스크롤">▲</button>
+                <button class="preview-scroll-btn" onclick="scrollPreview(1)" aria-label="아래로 스크롤">▼</button>
+              </div>
+            </div>
+          </div>
+
+          <aside class="menu-side">
+            <button class="clear-btn" onclick="clearCart()">전체 삭제</button>
+
+            <div class="side-card">
+              <p>남은시간</p>
+              <strong><span id="remain-seconds">120</span>초</strong>
+            </div>
+
+            <div class="side-card">
+              <p>선택한 상품</p>
+              <strong><span id="bottom-count-num">0</span>개</strong>
+            </div>
+
+            <div class="side-total">
+              <p>결제 금액</p>
+              <strong id="bottom-total-price">0원</strong>
+            </div>
+
+            <button class="bottom-pay-btn" onclick="showCart()" id="bottom-pay-btn" disabled>
+              결제하기
+            </button>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-overlay" class="modal-overlay" onclick="closeModal()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeModal()">×</button>
+
+      <div class="modal-top">
+        <div class="modal-img-box" id="modal-img-box">
+          <img id="modal-img" src="" alt="" onerror="this.style.display='none'">
+          <span id="modal-fallback" class="modal-fallback-emoji"></span>
+        </div>
+        <div class="modal-item-text">
+          <p class="modal-item-name" id="modal-item-name"></p>
+          <p class="modal-item-price" id="modal-item-base-price"></p>
+        </div>
+      </div>
+
+      <div id="opt-group-size" class="modal-opt-group">
+        <p class="opt-label">사이즈 선택</p>
+        <div class="opt-row">
+          <button class="opt-chip active" data-group="size" data-val="M" onclick="selectOpt(this)">M (기본)</button>
+          <button class="opt-chip" data-group="size" data-val="L" onclick="selectOpt(this)">L (+500원)</button>
+        </div>
+      </div>
+
+      <div id="opt-group-type" class="modal-opt-group">
+        <p class="opt-label">커피 옵션 선택</p>
+        <div class="opt-row">
+          <button class="opt-chip" data-group="type" data-val="HOT" onclick="selectOpt(this)">HOT</button>
+          <button class="opt-chip active" data-group="type" data-val="ICE" onclick="selectOpt(this)">ICE</button>
+          <button class="opt-chip" data-group="type" data-val="DECAF" onclick="selectOpt(this)">디카페인</button>
+        </div>
+      </div>
+
+      <div class="modal-opt-group">
+        <p class="opt-label">수량</p>
+        <div class="modal-qty-row">
+          <button class="qty-circle-btn" onclick="changeModalQty(-1)">-</button>
+          <span id="modal-qty" class="qty-val">1</span>
+          <button class="qty-circle-btn" onclick="changeModalQty(+1)">+</button>
+        </div>
+      </div>
+
+      <div class="modal-price-row">
+        합계: <strong id="modal-total-price">0원</strong>
+      </div>
+
+      <button class="modal-add-btn" onclick="confirmAddToCart()">장바구니 담기</button>
+    </div>
+  </div>
+
+  <div id="screen-cart" class="screen">
+    <div class="sub-header">
+      <button class="icon-back" onclick="showScreen('screen-menu')">←</button>
+      <span>주문 확인</span>
+      <div></div>
+    </div>
+
+    <div id="cart-items" class="cart-scroll"></div>
+
+    <div id="cart-empty" class="cart-empty" style="display:none">
+      <p>장바구니가 비어 있습니다</p>
+      <button onclick="showScreen('screen-menu')">메뉴로 돌아가기</button>
+    </div>
+
+    <div id="cart-footer" class="cart-footer-wrap">
+      <div class="cart-total-row">
+        <span>총 금액</span>
+        <span id="total-price" class="cart-total-price">0원</span>
+      </div>
+      <button class="big-orange-btn" onclick="goToPayment()">결제 화면으로 이동</button>
+    </div>
+  </div>
+
+  <div id="screen-payment" class="screen">
+    <div class="sub-header">
+      <button class="icon-back" onclick="showCart()">←</button>
+      <span>결제 방법 선택</span>
+      <div></div>
+    </div>
+
+    <div id="payment-summary" class="payment-summary-box"></div>
+
+    <div class="payment-methods-wrap">
+      <p class="payment-guide">결제 방법을 선택해 주세요</p>
+      <div class="payment-grid">
+        <button class="pay-card" onclick="selectPayment(this,'card')"><span>💳</span><span>신용/체크카드</span></button>
+        <button class="pay-card" onclick="selectPayment(this,'cash')"><span>💵</span><span>현금</span></button>
+        <button class="pay-card" onclick="selectPayment(this,'kakao')"><span>🟨</span><span>카카오페이</span></button>
+        <button class="pay-card" onclick="selectPayment(this,'samsung')"><span>📱</span><span>삼성페이</span></button>
+      </div>
+    </div>
+
+    <button class="big-orange-btn" id="btn-pay-confirm" onclick="placeOrder()" disabled>결제 완료하기</button>
+  </div>
+
+  <div id="screen-complete" class="screen">
+    <div class="complete-wrap">
+      <div class="complete-check">✔</div>
+      <h2>주문 완료</h2>
+      <div class="complete-num-box">
+        <p>주문 번호</p>
+        <strong id="order-number">001</strong>
+      </div>
+      <div class="complete-tags" id="complete-tags"></div>
+      <p class="complete-msg">제조가 완료되면 호출해 드립니다.</p>
+      <button class="big-orange-btn" onclick="startOver()">처음으로 돌아가기</button>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
