@@ -1,0 +1,381 @@
+/**
+ * 전체 애플리케이션 스타일
+ * 세로형 키오스크(1080x1920) 레이아웃
+ */
+
+:root {
+  /* 색상 변수 */
+  --primary: #2C5F2D;
+  --secondary: #8B4513;
+  --accent: #D4AF37;
+  --white: #FFFFFF;
+  --black: #000000;
+  --light-gray: #F5F5F5;
+  --gray: #CCCCCC;
+  --dark-gray: #666666;
+  --success: #4CAF50;
+  --error: #F44336;
+  --text: #212121;
+  --text-secondary: #757575;
+
+  /* 폰트 */
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-base: 16px;
+
+  /* 간격 */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* 보더 반경 */
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
+
+  /* 그림자 */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--light-gray);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+}
+
+/* 화면 공통 레이아웃 */
+.screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+}
+
+.screen-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: var(--white);
+  padding: var(--spacing-lg);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.screen-header h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.screen-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-lg);
+  background-color: var(--light-gray);
+}
+
+.screen-footer {
+  padding: var(--spacing-lg);
+  background-color: var(--white);
+  border-top: 2px solid var(--gray);
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: space-between;
+}
+
+/* 버튼 공통 스타일 */
+.btn {
+  padding: 16px 24px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  touch-action: manipulation;
+  min-height: 80px; /* 터치 타겟 최소 크기 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  background-color: #1e4620;
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary:hover {
+  background-color: #6b3410;
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  color: var(--black);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-accent:hover {
+  background-color: #c9a336;
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-outline {
+  background-color: var(--white);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--light-gray);
+}
+
+.btn-small {
+  padding: 8px 16px;
+  font-size: 14px;
+  min-height: auto;
+}
+
+.btn-large {
+  padding: 20px 32px;
+  font-size: 20px;
+  min-height: 100px;
+}
+
+.btn-danger {
+  background-color: var(--error);
+  color: var(--white);
+}
+
+.btn-danger:hover {
+  background-color: #d32f2f;
+}
+
+.btn-success {
+  background-color: var(--success);
+  color: var(--white);
+}
+
+.btn-success:hover {
+  background-color: #388e3c;
+}
+
+/* 버튼 그룹 */
+.button-group {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button-group.vertical {
+  flex-direction: column;
+}
+
+.button-group.horizontal {
+  flex-direction: row;
+}
+
+/* 입력 필드 */
+.input-field {
+  padding: 12px 16px;
+  font-size: 18px;
+  border: 2px solid var(--gray);
+  border-radius: var(--border-radius);
+  font-family: var(--font-family);
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(44, 95, 45, 0.1);
+}
+
+/* 카드 */
+.card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* 그리드 레이아웃 */
+.grid {
+  display: grid;
+  gap: var(--spacing-lg);
+  width: 100%;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* 플렉스 레이아웃 */
+.flex {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 텍스트 유틸리티 */
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-large {
+  font-size: 24px;
+}
+
+.text-xlarge {
+  font-size: 32px;
+}
+
+.text-small {
+  font-size: 14px;
+}
+
+/* 여백 유틸리티 */
+.mt-sm {
+  margin-top: var(--spacing-sm);
+}
+
+.mt-md {
+  margin-top: var(--spacing-md);
+}
+
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}
+
+.mb-sm {
+  margin-bottom: var(--spacing-sm);
+}
+
+.mb-md {
+  margin-bottom: var(--spacing-md);
+}
+
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* 스크롤 스타일 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-gray);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1080px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .btn {
+    min-height: 60px;
+    font-size: 16px;
+    padding: 12px 16px;
+  }
+
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .screen-content {
+    padding: var(--spacing-md);
+  }
+
+  .screen-header h1 {
+    font-size: 24px;
+  }
+}

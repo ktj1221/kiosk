@@ -1,0 +1,239 @@
+{
+  "version": "3.0",
+  "lastUpdated": "2026-04-02T06:42:52.419Z",
+  "activeFeatures": [
+    "js",
+    "kiosk",
+    "data",
+    "styles",
+    "screens"
+  ],
+  "primaryFeature": "js",
+  "features": {
+    "js": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-01T07:31:55.029Z",
+        "lastUpdated": "2026-04-01T07:57:08.866Z"
+      },
+      "lastFile": "d:\\Users\\20412157\\Desktop\\kiosk\\js\\app.js"
+    },
+    "kiosk": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-02T06:09:42.254Z",
+        "lastUpdated": "2026-04-02T06:42:32.845Z"
+      },
+      "lastFile": "d:\\Users\\20412157\\Desktop\\kiosk\\src\\App.tsx"
+    },
+    "data": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-02T06:10:03.596Z",
+        "lastUpdated": "2026-04-02T06:10:03.596Z"
+      },
+      "lastFile": "d:\\Users\\20412157\\Desktop\\kiosk\\src\\data\\menu.ts"
+    },
+    "styles": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-02T06:10:08.782Z",
+        "lastUpdated": "2026-04-02T06:10:08.782Z"
+      },
+      "lastFile": "d:\\Users\\20412157\\Desktop\\kiosk\\src\\styles\\colors.ts"
+    },
+    "screens": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-02T06:10:41.303Z",
+        "lastUpdated": "2026-04-02T06:42:52.414Z"
+      },
+      "lastFile": "d:\\Users\\20412157\\Desktop\\kiosk\\src\\screens\\ConfirmationScreen.tsx"
+    }
+  },
+  "pipeline": {
+    "currentPhase": 1,
+    "level": "Dynamic",
+    "phaseHistory": []
+  },
+  "session": {
+    "startedAt": "2026-04-01T07:25:04.382Z",
+    "onboardingCompleted": false,
+    "lastActivity": "2026-04-02T06:42:52.419Z"
+  },
+  "history": [
+    {
+      "timestamp": "2026-04-01T07:31:55.032Z",
+      "feature": "js",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-01T07:40:32.036Z",
+      "feature": "js",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-01T07:57:08.870Z",
+      "feature": "js",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:09:42.275Z",
+      "feature": "kiosk",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:09:51.067Z",
+      "feature": "kiosk",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:10:03.598Z",
+      "feature": "data",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:10:08.786Z",
+      "feature": "styles",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:10:19.633Z",
+      "feature": "kiosk",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:10:41.308Z",
+      "feature": "screens",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:10:53.595Z",
+      "feature": "screens",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:11:14.827Z",
+      "feature": "screens",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:11:33.625Z",
+      "feature": "screens",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:12:01.795Z",
+      "feature": "screens",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:12:21.653Z",
+      "feature": "screens",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:12:36.264Z",
+      "feature": "kiosk",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:42:32.850Z",
+      "feature": "kiosk",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:42:36.099Z",
+      "feature": "screens",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:42:39.377Z",
+      "feature": "screens",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:42:42.957Z",
+      "feature": "screens",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:42:46.226Z",
+      "feature": "screens",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:42:49.211Z",
+      "feature": "screens",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-02T06:42:52.419Z",
+      "feature": "screens",
+      "phase": "do",
+      "action": "updated"
+    }
+  ],
+  "stateMachine": {
+    "defaultWorkflow": "default",
+    "activeWorkflows": {},
+    "totalTransitions": 0
+  },
+  "automation": {
+    "globalLevel": 2,
+    "trustScore": 40,
+    "pendingApprovals": 0,
+    "lastGateResult": null
+  },
+  "team": {
+    "enabled": true,
+    "stateFile": ".bkit/runtime/agent-state.json",
+    "eventsFile": ".bkit/runtime/agent-events.jsonl"
+  }
+}

@@ -1,0 +1,91 @@
+/**
+ * 홈 화면 스타일
+ */
+
+.home-screen {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  gap: 60px;
+}
+
+.welcome-message {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.emoji-large {
+  font-size: 80px;
+  display: block;
+  margin-bottom: 20px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.welcome-message h2 {
+  font-size: 36px;
+  color: var(--primary);
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.welcome-message p {
+  font-size: 18px;
+  color: var(--text-secondary);
+}
+
+.options-group {
+  width: 100%;
+  max-width: 500px;
+  gap: 30px;
+}
+
+.option-btn {
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  flex-direction: column;
+  gap: 15px;
+}
+
+.option-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+.option-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 10px;
+}
+
+.option-icon {
+  font-size: 48px;
+  flex-shrink: 0;
+}
+
+.option-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.option-subtitle {
+  font-size: 14px;
+  opacity: 0.9;
+}

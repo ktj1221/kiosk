@@ -1,0 +1,160 @@
+/**
+ * 메뉴 데이터
+ * 커피 키오스크에서 판매할 메뉴 아이템들을 정의합니다.
+ */
+
+import { MenuItem } from '../types/index';
+
+export const menuItems: MenuItem[] = [
+  // 핫 커피
+  {
+    id: 1,
+    name: '아메리카노',
+    nameEn: 'Americano',
+    category: 'coffee',
+    price: 4000,
+    emoji: '☕',
+    availableIced: true,
+    availableSizes: ['Small', 'Medium', 'Large'],
+  },
+  {
+    id: 2,
+    name: '카페라떼',
+    nameEn: 'Cafe Latte',
+    category: 'coffee',
+    price: 4500,
+    emoji: '🥛',
+    availableIced: true,
+    availableSizes: ['Small', 'Medium', 'Large'],
+  },
+  {
+    id: 3,
+    name: '카푸치노',
+    nameEn: 'Cappuccino',
+    category: 'coffee',
+    price: 4500,
+    emoji: '☕',
+    availableIced: false,
+    availableSizes: ['Small', 'Medium', 'Large'],
+  },
+  {
+    id: 4,
+    name: '마끼아또',
+    nameEn: 'Macchiato',
+    category: 'coffee',
+    price: 4800,
+    emoji: '☕',
+    availableIced: true,
+    availableSizes: ['Small', 'Medium', 'Large'],
+  },
+  {
+    id: 5,
+    name: '에스프레소',
+    nameEn: 'Espresso',
+    category: 'coffee',
+    price: 3500,
+    emoji: '☕',
+    availableIced: true,
+    availableSizes: ['Small', 'Medium'],
+  },
+  {
+    id: 6,
+    name: '콜드브루',
+    nameEn: 'Cold Brew',
+    category: 'coffee',
+    price: 5000,
+    emoji: '🧊',
+    availableIced: true,
+    availableSizes: ['Small', 'Medium', 'Large'],
+  },
+
+  // 논-커피
+  {
+    id: 7,
+    name: '녹차라떼',
+    nameEn: 'Green Tea Latte',
+    category: 'non-coffee',
+    price: 5000,
+    emoji: '🍵',
+    availableIced: true,
+    availableSizes: ['Small', 'Medium', 'Large'],
+  },
+  {
+    id: 8,
+    name: '딸기라떼',
+    nameEn: 'Strawberry Latte',
+    category: 'non-coffee',
+    price: 5500,
+    emoji: '🍓',
+    availableIced: true,
+    availableSizes: ['Small', 'Medium', 'Large'],
+  },
+  {
+    id: 9,
+    name: '초콜릿',
+    nameEn: 'Hot Chocolate',
+    category: 'non-coffee',
+    price: 5000,
+    emoji: '🍫',
+    availableIced: true,
+    availableSizes: ['Small', 'Medium', 'Large'],
+  },
+  {
+    id: 10,
+    name: '망고스무디',
+    nameEn: 'Mango Smoothie',
+    category: 'non-coffee',
+    price: 6000,
+    emoji: '🥭',
+    availableIced: true,
+    availableSizes: ['Small', 'Medium', 'Large'],
+  },
+
+  // 디저트
+  {
+    id: 11,
+    name: '초코케이크',
+    nameEn: 'Chocolate Cake',
+    category: 'dessert',
+    price: 6500,
+    emoji: '🍰',
+    availableIced: false,
+    availableSizes: ['Medium'],
+  },
+  {
+    id: 12,
+    name: '크루아상',
+    nameEn: 'Croissant',
+    category: 'dessert',
+    price: 4000,
+    emoji: '🥐',
+    availableIced: false,
+    availableSizes: ['Medium'],
+  },
+  {
+    id: 13,
+    name: '마카롱',
+    nameEn: 'Macaron',
+    category: 'dessert',
+    price: 3500,
+    emoji: '🍪',
+    availableIced: false,
+    availableSizes: ['Medium'],
+  },
+  {
+    id: 14,
+    name: '치즈케이크',
+    nameEn: 'Cheesecake',
+    category: 'dessert',
+    price: 7000,
+    emoji: '🍰',
+    availableIced: false,
+    availableSizes: ['Medium'],
+  },
+];
+
+export const categories = [
+  { id: 'coffee', name: '커피', nameEn: 'Coffee' },
+  { id: 'non-coffee', name: '음료', nameEn: 'Beverages' },
+  { id: 'dessert', name: '디저트', nameEn: 'Dessert' },
+];
