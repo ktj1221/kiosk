@@ -1,25 +1,14 @@
 {
   "version": "1.0",
-  "enabled": true,
+  "enabled": false,
   "teamName": "",
   "feature": "js",
   "pdcaPhase": "do",
   "orchestrationPattern": "leader",
   "ctoAgent": "opus",
-  "startedAt": "2026-04-02T06:06:34.440Z",
-  "lastUpdated": "2026-04-02T06:06:34.446Z",
-  "teammates": [
-    {
-      "name": "a2038854074f80db1",
-      "role": "coffee-kiosk-builder",
-      "model": "sonnet",
-      "status": "spawning",
-      "currentTask": null,
-      "taskId": null,
-      "startedAt": "2026-04-02T06:06:34.446Z",
-      "lastActivityAt": "2026-04-02T06:06:34.446Z"
-    }
-  ],
+  "startedAt": "2026-04-08T04:16:29.635Z",
+  "lastUpdated": "2026-04-08T04:23:26.275Z",
+  "teammates": [],
   "progress": {
     "totalTasks": 0,
     "completedTasks": 0,
@@ -28,5 +17,5 @@
     "pendingTasks": 0
   },
   "recentMessages": [],
-  "sessionId": "53f0f7f2-a859-4fe6-8a2a-f38608bbf885"
+  "sessionId": "2d4da2f8-0db0-4abb-ba52-9d915bf19425"
 }

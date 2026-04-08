@@ -12,8 +12,8 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ onSelectDine }) => {
   return (
     <div className="screen home-screen">
       <div className="screen-header">
-        <h1>커피 주문 키오스크</h1>
-        <p className="subtitle">Welcome to Our Coffee Kiosk</p>
+        <h1>NH Cafe</h1>
+        <p className="subtitle">Welcome to NH Cafe</p>
       </div>
 
       <div className="screen-content home-content">

@@ -2,23 +2,57 @@
  * 메뉴 화면 - 카테고리별 메뉴 선택
  */
 
-import { useState } from 'react';
-import { MenuItem } from '../types/index';
+import { useState, useRef, useEffect } from 'react';
+import { MenuItem, CartItem } from '../types/index';
 import { menuItems, categories } from '../data/menu';
 import './MenuScreen.css';
 
 interface MenuScreenProps {
   onSelectItem: (item: MenuItem) => void;
-  cartItemCount: number;
+  cart: CartItem[];
   onGoToCart: () => void;
+  onUpdateQuantity: (cartItemId: string, newQuantity: number) => void;
+  onRemove: (cartItemId: string) => void;
 }
+
+const calcItemPrice = (item: CartItem) => {
+  let price = item.menuItem.price;
+  if (item.options.size === 'Large') price += 1000;
+  else if (item.options.size === 'Small') price -= 500;
+  price += item.options.extraShots * 500;
+  return price * item.quantity;
+};
 
 const MenuScreen: React.FC<MenuScreenProps> = ({
   onSelectItem,
-  cartItemCount,
+  cart,
   onGoToCart,
+  onUpdateQuantity,
+  onRemove,
 }) => {
+  const cartItemCount = cart.length;
+  const totalPrice = cart.reduce((sum, item) => sum + calcItemPrice(item), 0);
   const [selectedCategory, setSelectedCategory] = useState<string>('coffee');
+  const listRef = useRef<HTMLDivElement>(null);
+  const [canScrollUp, setCanScrollUp] = useState(false);
+  const [canScrollDown, setCanScrollDown] = useState(false);
+
+  const updateScrollState = () => {
+    const el = listRef.current;
+    if (!el) return;
+    setCanScrollUp(el.scrollTop > 0);
+    setCanScrollDown(el.scrollTop + el.clientHeight < el.scrollHeight - 1);
+  };
+
+  useEffect(() => {
+    updateScrollState();
+  }, [cart]);
+
+  const scroll = (dir: 'up' | 'down') => {
+    const el = listRef.current;
+    if (!el) return;
+    el.scrollBy({ top: dir === 'up' ? -80 : 80, behavior: 'smooth' });
+  };
 
   // 선택된 카테고리의 메뉴 필터링
   const filteredItems = menuItems.filter(
@@ -57,27 +91,92 @@ const MenuScreen: React.FC<MenuScreenProps> = ({
               className="menu-item-card card"
               onClick={() => onSelectItem(item)}
             >
-              <div className="menu-item-emoji">{item.emoji}</div>
-              <div className="menu-item-name">{item.name}</div>
-              <div className="menu-item-name-en">{item.nameEn}</div>
-              <div className="menu-item-price">{item.price.toLocaleString()}원</div>
+              <div className="menu-item-image-wrap">
+                {item.image ? (
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="menu-item-image"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.display = 'none';
+                      (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'flex';
+                    }}
+                  />
+                ) : null}
+                <div
+                  className="menu-item-emoji-fallback"
+                  style={{ display: item.image ? 'none' : 'flex' }}
+                >
+                  {item.emoji}
+                </div>
+              </div>
+              <div className="menu-item-info">
+                <div className="menu-item-name">{item.name}</div>
+                <div className="menu-item-name-en">{item.nameEn}</div>
+                <div className="menu-item-price">{item.price.toLocaleString()}원</div>
+              </div>
             </button>
           ))}
         </div>
       </div>
 
-      {/* 하단 버튼 */}
+      {/* 하단 장바구니 요약 */}
       <div className="screen-footer">
         <button className="btn btn-outline" onClick={() => window.location.reload()}>
           처음으로
         </button>
-        <button
-          className="btn btn-primary"
-          onClick={onGoToCart}
-          disabled={cartItemCount === 0}
-        >
-          장바구니 ({cartItemCount})
-        </button>
+        {cartItemCount > 0 ? (
+          <div className="cart-summary">
+            {canScrollUp && (
+              <button className="scroll-arrow scroll-arrow-up" onClick={() => scroll('up')}>▲</button>
+            )}
+            <div className="cart-summary-list" ref={listRef} onScroll={updateScrollState}>
+              {cart.map((item) => (
+                <div key={item.id} className="cart-summary-row">
+                  <span className="cart-summary-name">
+                    {item.menuItem.name}
+                    <em>
+                      {item.menuItem.category !== 'dessert'
+                        ? `${item.options.size} · ${item.options.temperature}${item.options.decaf ? ' · 디카페인' : ''}`
+                        : '디저트'}
+                    </em>
+                  </span>
+                  <div className="cart-summary-controls">
+                    <button
+                      className="qty-btn"
+                      onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
+                    >−</button>
+                    <span className="qty-value">{item.quantity}</span>
+                    <button
+                      className="qty-btn"
+                      onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
+                    >+</button>
+                    <button
+                      className="del-btn"
+                      onClick={() => onRemove(item.id)}
+                    >✕</button>
+                  </div>
+                  <span className="cart-summary-price">
+                    {calcItemPrice(item).toLocaleString()}원
+                  </span>
+                </div>
+              ))}
+            </div>
+            {canScrollDown && (
+              <button className="scroll-arrow scroll-arrow-down" onClick={() => scroll('down')}>▼</button>
+            )}
+            <div className="cart-summary-footer">
+              <span className="cart-summary-total">총 {totalPrice.toLocaleString()}원</span>
+              <button className="btn btn-primary cart-checkout-btn" onClick={onGoToCart}>
+                주문하기 →
+              </button>
+            </div>
+          </div>
+        ) : (
+          <button className="btn btn-primary" disabled>
+            장바구니 비어있음
+          </button>
+        )}
       </div>
     </div>
   );

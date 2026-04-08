@@ -1,0 +1,99 @@
+.selector-screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(160deg, #f8f9fc 0%, #eef0f7 100%);
+  overflow-y: auto;
+}
+
+.selector-header {
+  padding: 48px 24px 32px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.selector-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #1E2235;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+
+.selector-subtitle {
+  font-size: 18px;
+  color: #4a5168;
+  margin-bottom: 4px;
+}
+
+.selector-subtitle-en {
+  font-size: 14px;
+  color: #8A90A2;
+}
+
+.selector-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 24px;
+}
+
+.store-card {
+  width: 100%;
+  max-width: 480px;
+  padding: 36px 24px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: inherit;
+}
+
+.store-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.store-card:active {
+  transform: translateY(0);
+}
+
+.cafe-card {
+  background: linear-gradient(135deg, #3D4F7C 0%, #5C6E9E 100%);
+  color: white;
+}
+
+.burger-card {
+  background: linear-gradient(135deg, #C0272D 0%, #D9534F 100%);
+  color: white;
+}
+
+.store-emoji {
+  font-size: 64px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.store-name {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.store-desc {
+  font-size: 16px;
+  opacity: 0.85;
+  margin-bottom: 4px;
+}
+
+.store-desc-en {
+  font-size: 13px;
+  opacity: 0.65;
+}

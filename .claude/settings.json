@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git pull:*)"
+      "Bash(git pull:*)",
+      "Bash(npm run:*)",
+      "Bash(rm -rf dist)",
+      "Bash(find . -name \"*.js\" -path \"./src/*\" -delete)",
+      "Bash(npx vite:*)"
+    ],
+    "additionalDirectories": [
+      "D:\\Users\\20412157\\Desktop\\burger-kiosk"
     ]
   }
 }

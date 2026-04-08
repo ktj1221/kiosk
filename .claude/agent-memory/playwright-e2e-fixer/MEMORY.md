@@ -1,0 +1,1 @@
+- [NH Cafe Kiosk Playwright E2E Setup](project_kiosk_e2e.md) — Playwright 1.59.1 설치, 18개 테스트 전부 통과, 셀렉터 함정 포함

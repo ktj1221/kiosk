@@ -1,0 +1,189 @@
+/**
+ * 결제 화면 스타일
+ */
+
+.payment-screen {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 결제 금액 요약 */
+.payment-summary {
+  padding: 30px !important;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: var(--white);
+  border-radius: var(--border-radius-lg);
+  margin-bottom: 20px;
+}
+
+.summary-title {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+.summary-total {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.summary-items-count {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* 결제 방식 선택 */
+.payment-methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.payment-method-btn {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px !important;
+  gap: 12px;
+  cursor: pointer;
+  border: 3px solid var(--gray);
+  background-color: var(--white);
+  border-radius: var(--border-radius-lg);
+  transition: all 0.3s ease;
+  min-height: 160px;
+}
+
+.payment-method-btn:hover {
+  border-color: var(--primary);
+  background-color: #f0f8f5;
+  transform: translateY(-4px);
+}
+
+.payment-method-btn.selected {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.method-icon {
+  font-size: 48px;
+}
+
+.method-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--text);
+}
+
+.payment-method-btn.selected .method-name {
+  color: var(--white);
+}
+
+.method-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.payment-method-btn.selected .method-desc {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 결제 처리 중 */
+.payment-processing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+.spinner {
+  width: 80px;
+  height: 80px;
+  border: 4px solid var(--light-gray);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.processing-message {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text);
+  text-align: center;
+}
+
+.processing-amount {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* 결제 주의사항 */
+.payment-notice {
+  padding: 16px !important;
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.notice-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.notice-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.notice-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #856404;
+  line-height: 1.4;
+}
+
+/* 반응형 */
+@media (max-width: 1080px) {
+  .payment-methods {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .summary-total {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .payment-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-method-btn {
+    min-height: 120px;
+  }
+
+  .method-icon {
+    font-size: 40px;
+  }
+
+  .summary-total {
+    font-size: 32px;
+  }
+}
