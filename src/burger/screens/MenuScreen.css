@@ -114,20 +114,20 @@
 }
 
 .menu-item-name {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   color: #212121;
   margin-bottom: 2px;
 }
 
 .menu-item-name-en {
-  font-size: 10px;
+  font-size: 12px;
   color: #9E9E9E;
   margin-bottom: 6px;
 }
 
 .menu-item-price {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   color: #C0272D;
 }
@@ -185,7 +185,7 @@
   padding: 8px;
   background-color: #F9F9F9;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .cart-summary-name {
@@ -212,17 +212,20 @@
 }
 
 .qty-btn {
-  width: 24px;
-  height: 24px;
+  width: 36px;
+  height: 36px;
   padding: 0;
   background-color: #F0F0F0;
   border: 1px solid #E0E0E0;
-  border-radius: 3px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
   color: #212121;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .qty-btn:hover {
@@ -230,23 +233,27 @@
 }
 
 .qty-value {
-  width: 24px;
+  width: 28px;
   text-align: center;
   font-weight: 600;
+  font-size: 14px;
   color: #212121;
 }
 
 .del-btn {
-  width: 24px;
-  height: 24px;
+  width: 36px;
+  height: 36px;
   padding: 0;
   background-color: #FFEBEE;
   border: 1px solid #FFCDD2;
-  border-radius: 3px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 14px;
   color: #D32F2F;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .del-btn:hover {
@@ -284,17 +291,3 @@
   flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
-  .menu-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 12px;
-  }
-
-  .cart-summary {
-    max-height: 150px;
-  }
-
-  .cart-summary-row {
-    font-size: 10px;
-  }
-}

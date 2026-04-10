@@ -177,13 +177,3 @@
   padding-top: 12px;
 }
 
-/* 반응형 */
-@media (max-width: 1080px) {
-  .option-buttons {
-    flex-direction: column;
-  }
-
-  .option-btn {
-    width: 100%;
-  }
-}

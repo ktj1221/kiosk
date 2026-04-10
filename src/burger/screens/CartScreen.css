@@ -77,18 +77,18 @@
 }
 
 .cart-item-name {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #212121;
 }
 
 .cart-item-option {
-  font-size: 11px;
+  font-size: 13px;
   color: #757575;
 }
 
 .cart-item-price {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   color: #C0272D;
 }
@@ -96,21 +96,24 @@
 .cart-item-controls {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .cart-item-controls .qty-btn {
-  width: 28px;
-  height: 28px;
+  width: 40px;
+  height: 40px;
   padding: 0;
   background-color: #F5F5F5;
   border: 1px solid #E0E0E0;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 600;
   color: #212121;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cart-item-controls .qty-btn:hover {
@@ -118,25 +121,28 @@
 }
 
 .cart-item-controls .qty-value {
-  width: 24px;
+  width: 28px;
   text-align: center;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 15px;
   color: #212121;
 }
 
 .del-btn {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   padding: 0;
   background-color: #FFEBEE;
   border: 1px solid #FFCDD2;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   color: #D32F2F;
   transition: all 0.2s ease;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .del-btn:hover {
@@ -215,46 +221,3 @@
   flex: 1;
 }
 
-@media (max-width: 768px) {
-  .cart-content {
-    padding: 16px;
-    gap: 16px;
-  }
-
-  .cart-item {
-    padding: 10px;
-  }
-
-  .cart-item-image-wrap {
-    width: 70px;
-    height: 70px;
-  }
-
-  .cart-item-emoji {
-    font-size: 28px;
-  }
-
-  .cart-item-name {
-    font-size: 12px;
-  }
-
-  .cart-item-option {
-    font-size: 10px;
-  }
-
-  .price-summary {
-    padding: 12px;
-  }
-
-  .price-row {
-    font-size: 12px;
-  }
-
-  .price-row.total {
-    font-size: 14px;
-  }
-
-  .total-price {
-    font-size: 16px;
-  }
-}
